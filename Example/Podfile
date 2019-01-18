@@ -1,0 +1,8 @@
+use_frameworks!
+
+
+target 'ACSlider_Example' do
+
+    pod 'ACSlider', :path => '../'
+
+end

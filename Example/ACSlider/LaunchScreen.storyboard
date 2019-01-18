@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TkW-Cb-oJD">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Awk-Mr-PdO">
+            <objects>
+                <viewController id="TkW-Cb-oJD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qU1-C5-RCO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACSlider" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Whg-tW-9K8">
+                                <rect key="frame" x="114" y="245.5" width="147" height="43"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="robot" translatesAutoresizingMaskIntoConstraints="NO" id="owo-eg-GYd">
+                                <rect key="frame" x="170" y="575" width="35" height="60"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Whg-tW-9K8" firstAttribute="centerX" secondItem="qU1-C5-RCO" secondAttribute="centerX" id="EYb-So-vnU"/>
+                            <constraint firstItem="Whg-tW-9K8" firstAttribute="centerY" secondItem="qU1-C5-RCO" secondAttribute="centerY" multiplier="0.8" id="d3k-ae-6XP"/>
+                            <constraint firstItem="0u3-CR-bwd" firstAttribute="bottom" secondItem="owo-eg-GYd" secondAttribute="bottom" constant="32" id="iSW-aY-p2M"/>
+                            <constraint firstItem="owo-eg-GYd" firstAttribute="centerX" secondItem="qU1-C5-RCO" secondAttribute="centerX" id="kXJ-dy-1MB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0u3-CR-bwd"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n3q-p9-Fka" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-83" y="-625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="robot" width="35" height="60"/>
+    </resources>
+</document>
