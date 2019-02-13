@@ -1,5 +1,5 @@
 PODS:
-  - ACSlider (1.0.0)
+  - ACSlider (1.0.2)
 
 DEPENDENCIES:
   - ACSlider (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ACSlider: bbc8641182c97c7ae40dead275183dec880079f1
+  ACSlider: dfc421d970c21c2546f1cfb3b2d6fa241bca1c43
 
 PODFILE CHECKSUM: 9369b59a92972a0bcc86321dd5a8a2e36da80f40
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0

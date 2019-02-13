@@ -1,6 +1,6 @@
 {
   "name": "ACSlider",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "summary": "A slider displaying selected value.",
   "description": "⏰ A Slider for Redmadrobot proof of concept for the Colored Alarm Clock Interface shot @ Dribbble",
   "homepage": "https://github.com/RedMadRobot/ACSlider",
@@ -8,11 +8,11 @@
     "type": "MIT"
   },
   "authors": {
-    "Roman Firmach": "rc@redmadrobot.com"
+    "Roman Churkin": "rc@redmadrobot.com"
   },
   "source": {
     "git": "https://github.com/RedMadRobot/ACSlider.git",
-    "tag": "1.0.0"
+    "tag": "1.0.2"
   },
   "social_media_url": "https://twitter.com/firmach",
   "platforms": {
