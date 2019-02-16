@@ -71,10 +71,7 @@ final class ThumbView: UIView {
         addSubview(thumbView)
         
         configureLayout()
-        
-        valueLabel.textColor = tintColor
-        titleLabel.textColor = tintColor
-        thumbView.tintColor = tintColor
+        configureTintColor()
         
         thumbView.transform = CGAffineTransform(scaleX: 0,
                                                 y: 0)
@@ -100,7 +97,10 @@ final class ThumbView: UIView {
     
     override func tintColorDidChange() {
         super.tintColorDidChange()
-        
+        configureTintColor()
+    }
+    
+    private func configureTintColor() {
         valueLabel.textColor = tintColor
         titleLabel.textColor = tintColor
         thumbView.tintColor = tintColor
@@ -111,21 +111,25 @@ final class ThumbView: UIView {
     
     func animateTrackingBegin() {
         UIView.animateEasy {
-            self.valueLabel.transform = CGAffineTransform(translationX: 0, y: -50)
-            self.thumbView.transform = CGAffineTransform.identity
-            self.thumbView.alpha = 1
+            self.animateTracking(valueLabelTransform: CGAffineTransform(translationX: 0, y: -50),
+                                 thumbViewTransform: .identity,
+                                 thumbViewAlpha: 1)
         }
     }
     
     func animateTrackingEnd() {
         UIView.animateEasy {
-            self.valueLabel.transform = CGAffineTransform.identity
-            self.thumbView.transform = CGAffineTransform(scaleX: 0,
-                                                         y: 0)
-            self.thumbView.alpha = 0
+            self.animateTracking(valueLabelTransform: .identity,
+                                 thumbViewTransform: CGAffineTransform(scaleX: 0, y: 0),
+                                 thumbViewAlpha: 0)
         }
     }
     
+    private func animateTracking(valueLabelTransform: CGAffineTransform, thumbViewTransform: CGAffineTransform, thumbViewAlpha: CGFloat) {
+        self.valueLabel.transform = valueLabelTransform
+        self.thumbView.transform = thumbViewTransform
+        self.thumbView.alpha = thumbViewAlpha
+    }
 }
 
 
