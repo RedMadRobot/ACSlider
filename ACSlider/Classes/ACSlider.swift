@@ -37,8 +37,8 @@ public final class ACSlider: UIControl {
     }()
     
     
-    private let minTrackView: UIView = ACSlider.prepareTrackView()
-    private let maxTrackView: UIView = ACSlider.prepareTrackView()
+    private let minTrackView = ACSlider.prepareTrackView()
+    private let maxTrackView = ACSlider.prepareTrackView()
     
     private static func prepareTrackView() -> UIView {
         let view = UIView(frame: .zero)

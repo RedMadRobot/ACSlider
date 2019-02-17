@@ -25,7 +25,7 @@ final class ThumbView: UIView {
     
     // MARK: -
     
-    private var valueLabel: UILabel = {
+    private let valueLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.textAlignment = .center
         label.text = "00"
@@ -33,14 +33,14 @@ final class ThumbView: UIView {
         return label
     }()
     
-    private var titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.textAlignment = .center
         
         return label
     }()
     
-    private var thumbView: UIView = {
+    private let thumbView: UIView = {
         return CircleView(frame: .zero)
     }()
     
