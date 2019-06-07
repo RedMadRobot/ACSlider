@@ -17,9 +17,16 @@ final class ThumbView: UIView {
         set { titleLabel.text = newValue }
     }
     
-    var value: String? {
-        get { return valueLabel.text }
-        set { valueLabel.text = newValue }
+    private static let valueFormat = "%02.0f"
+    
+    private var rawCurrentValue: CGFloat = 0
+    
+    var currentValue: CGFloat {
+        get { return rawCurrentValue }
+        set {
+            rawCurrentValue = newValue
+            valueLabel.text = String(format: ThumbView.valueFormat, newValue)
+        }
     }
     
     
@@ -28,7 +35,6 @@ final class ThumbView: UIView {
     private let valueLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.textAlignment = .center
-        label.text = "00"
         
         return label
     }()
@@ -69,6 +75,8 @@ final class ThumbView: UIView {
         addSubview(titleLabel)
         addSubview(valueLabel)
         addSubview(thumbView)
+        
+        currentValue = 0
         
         configureLayout()
         configureTintColor()

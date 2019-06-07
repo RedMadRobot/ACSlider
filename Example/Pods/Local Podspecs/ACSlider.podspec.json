@@ -18,11 +18,12 @@
   "platforms": {
     "ios": "10.0"
   },
-  "swift_version": "4.2",
+  "swift_versions": "4.2",
   "source_files": "ACSlider/Classes/*.swift",
   "resource_bundles": {
     "ACSlider": [
       "ACSlider/Assets/*.ttf"
     ]
-  }
+  },
+  "swift_version": "4.2"
 }

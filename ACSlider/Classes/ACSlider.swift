@@ -12,18 +12,17 @@ import UIKit
 @IBDesignable
 public final class ACSlider: UIControl {
     
-    @IBInspectable var title: String? {
+    @IBInspectable public var title: String? {
         get { return thumbView.title }
         set { thumbView.title = newValue }
     }
+    @IBInspectable public var currentValue: CGFloat {
+        get { return thumbView.currentValue }
+        set { thumbView.currentValue = newValue }
+    }
     @IBInspectable public var maxValue: CGFloat = 23
-    
 
     // MARK: -
-    
-    private(set) public var value: CGFloat = 0 {
-        didSet { thumbView.value = String(format: "%02.0f", value) }
-    }
     
     private var thumbSize: CGSize {
         return thumbView.intrinsicContentSize
@@ -73,11 +72,6 @@ public final class ACSlider: UIControl {
         addSubview(thumbView)
     }
     
-    override public func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        value = CGFloat(Int.random(in: 0..<Int(maxValue)))
-    }
-    
     override public func tintColorDidChange() {
         super.tintColorDidChange()
         tintColorUpdate()
@@ -99,7 +93,7 @@ public final class ACSlider: UIControl {
     
     private func recalculateFrames() {
         let stepWidth = (bounds.width - thumbSize.width) / maxValue
-        let currentX = stepWidth * value
+        let currentX = stepWidth * currentValue
         
         thumbView.frame = CGRect(origin: CGPoint(x: currentX, y: 0),
                                  size: thumbSize)
@@ -127,7 +121,7 @@ public final class ACSlider: UIControl {
         
         let progress = position / (bounds.width - thumbSize.width)
         
-        value = maxValue * progress
+        currentValue = maxValue * progress
         
         if animated {
             UIView.animateEasy { self.recalculateFrames() }
@@ -161,7 +155,7 @@ public final class ACSlider: UIControl {
     override public func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         thumbView.animateTrackingEnd()
         
-        value = value.rounded()
+        currentValue = currentValue.rounded()
         
         UIView.animateEasy { self.recalculateFrames() }
         
