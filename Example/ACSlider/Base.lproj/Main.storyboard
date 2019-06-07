@@ -26,10 +26,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
-                                        <real key="value" value="17"/>
+                                        <real key="value" value="23"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="minutes"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="currentValue">
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="hours"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>

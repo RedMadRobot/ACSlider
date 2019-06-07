@@ -9,16 +9,21 @@
 import UIKit
 
 
+protocol TitleValueProvider {
+    var title: String? { get set }
+    var value: CGFloat { get set }
+}
+
 @IBDesignable
-public final class ACSlider: UIControl {
+public final class ACSlider: UIControl, TitleValueProvider {
     
     @IBInspectable public var title: String? {
         get { return thumbView.title }
         set { thumbView.title = newValue }
     }
-    @IBInspectable public var currentValue: CGFloat {
-        get { return thumbView.currentValue }
-        set { thumbView.currentValue = newValue }
+    @IBInspectable public var value: CGFloat {
+        get { return thumbView.value }
+        set { thumbView.value = newValue }
     }
     @IBInspectable public var maxValue: CGFloat = 23
 
@@ -93,7 +98,7 @@ public final class ACSlider: UIControl {
     
     private func recalculateFrames() {
         let stepWidth = (bounds.width - thumbSize.width) / maxValue
-        let currentX = stepWidth * currentValue
+        let currentX = stepWidth * value
         
         thumbView.frame = CGRect(origin: CGPoint(x: currentX, y: 0),
                                  size: thumbSize)
@@ -121,7 +126,7 @@ public final class ACSlider: UIControl {
         
         let progress = position / (bounds.width - thumbSize.width)
         
-        currentValue = maxValue * progress
+        value = maxValue * progress
         
         if animated {
             UIView.animateEasy { self.recalculateFrames() }
@@ -155,7 +160,7 @@ public final class ACSlider: UIControl {
     override public func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         thumbView.animateTrackingEnd()
         
-        currentValue = currentValue.rounded()
+        value = value.rounded()
         
         UIView.animateEasy { self.recalculateFrames() }
         
