@@ -10,35 +10,38 @@ import UIKit
 
 
 @IBDesignable
-final class ThumbView: UIView {
+final class ThumbView: UIView, TitleValueProvider {
     
     var title: String? {
         get { return titleLabel.text }
         set { titleLabel.text = newValue }
     }
     
-    var value: String? {
-        get { return valueLabel.text }
-        set { valueLabel.text = newValue }
+    private static let valueFormat = "%02.0f"
+    
+    private var rawValue: CGFloat = 0
+    
+    var value: CGFloat {
+        get { return rawValue }
+        set {
+            rawValue = newValue
+            valueLabel.text = String(format: ThumbView.valueFormat, newValue)
+        }
     }
     
     
     // MARK: -
     
-    private let valueLabel: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.textAlignment = .center
-        label.text = "00"
-        
-        return label
-    }()
+    private let valueLabel = ThumbView.createLabel()
     
-    private let titleLabel: UILabel = {
+    private let titleLabel = ThumbView.createLabel()
+    
+    private static func createLabel() -> UILabel {
         let label = UILabel(frame: .zero)
         label.textAlignment = .center
         
         return label
-    }()
+    }
     
     private let thumbView: UIView = {
         return CircleView(frame: .zero)
@@ -69,6 +72,8 @@ final class ThumbView: UIView {
         addSubview(titleLabel)
         addSubview(valueLabel)
         addSubview(thumbView)
+        
+        value = 0
         
         configureLayout()
         configureTintColor()

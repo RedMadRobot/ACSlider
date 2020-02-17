@@ -9,21 +9,25 @@
 import UIKit
 
 
+protocol TitleValueProvider {
+    var title: String? { get set }
+    var value: CGFloat { get set }
+}
+
 @IBDesignable
-public final class ACSlider: UIControl {
+public final class ACSlider: UIControl, TitleValueProvider {
     
-    @IBInspectable var title: String? {
+    @IBInspectable public var title: String? {
         get { return thumbView.title }
         set { thumbView.title = newValue }
     }
+    @IBInspectable public var value: CGFloat {
+        get { return thumbView.value }
+        set { thumbView.value = newValue }
+    }
     @IBInspectable public var maxValue: CGFloat = 23
-    
 
     // MARK: -
-    
-    private(set) public var value: CGFloat = 0 {
-        didSet { thumbView.value = String(format: "%02.0f", value) }
-    }
     
     private var thumbSize: CGSize {
         return thumbView.intrinsicContentSize
@@ -71,11 +75,6 @@ public final class ACSlider: UIControl {
         addSubview(minTrackView)
         addSubview(maxTrackView)
         addSubview(thumbView)
-    }
-    
-    override public func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        value = CGFloat(Int.random(in: 0..<Int(maxValue)))
     }
     
     override public func tintColorDidChange() {
